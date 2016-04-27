@@ -1,0 +1,16 @@
+c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\lab2_2016advanced\bin\Debug\lab2_2016advanced.exe.config
+c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\lab2_2016advanced\bin\Debug\lab2_2016advanced.exe
+c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\lab2_2016advanced\bin\Debug\lab2_2016advanced.pdb
+c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\lab2_2016advanced\bin\Debug\Library.dll
+c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\lab2_2016advanced\bin\Debug\Library.pdb
+c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\lab2_2016advanced\obj\Debug\lab2_2016advanced.csprojResolveAssemblyReference.cache
+c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\lab2_2016advanced\obj\Debug\MainWindow.g.cs
+c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\lab2_2016advanced\obj\Debug\App.g.cs
+c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\lab2_2016advanced\obj\Debug\lab2_2016advanced_MarkupCompile.cache
+c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\lab2_2016advanced\obj\Debug\lab2_2016advanced_MarkupCompile.lref
+c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\lab2_2016advanced\obj\Debug\MainWindow.baml
+c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\lab2_2016advanced\obj\Debug\lab2_2016advanced.g.resources
+c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\lab2_2016advanced\obj\Debug\lab2_2016advanced.Properties.Resources.resources
+c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\lab2_2016advanced\obj\Debug\lab2_2016advanced.csproj.GenerateResource.Cache
+c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\lab2_2016advanced\obj\Debug\lab2_2016advanced.exe
+c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\lab2_2016advanced\obj\Debug\lab2_2016advanced.pdb
