@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
+    [Serializable]
     public class NumericResults : Model
     {
         public int partition_x { set; get; }
@@ -24,11 +25,15 @@ namespace Library
         }
         private double min_ch = double.MaxValue;
         private double max_ch = double.MinValue;
-        private double aver_ch = double.MaxValue;
+
+        public bool min_flag = false;
+        public bool max_flag = false;
         public double min_characteristics
         {
             get
-            { 
+            {
+                if (min_flag) return min_ch;
+                min_flag = true;
                 for (int i = 0; i < partition_x; ++i)
                     for (int j = 0; j < partition_y; ++j)
                     {
@@ -40,12 +45,14 @@ namespace Library
         }
         public double average_characteristics
         {
-            get { return (max_ch + min_ch) / 2; }
+            get { return (max_characteristics + min_characteristics) / 2; }
         }
         public double max_characteristics
         {
             get
             {
+                if (max_flag) return max_ch;
+                max_flag = true;
                 for(int i = 0; i < partition_x; ++i)
                     for (int j = 0; j < partition_y; ++j)
                 {

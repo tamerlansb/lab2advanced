@@ -13,5 +13,10 @@ namespace lab2_2016advanced
         public ThreadInfo threadinfo { get; set; }
         public int x0 { get; set; }
         public int  x { get; set; }
+        public WorkerArg()
+        {
+            results = new NumericResults();
+            threadinfo = new ThreadInfo();
+        }
     }
 }
