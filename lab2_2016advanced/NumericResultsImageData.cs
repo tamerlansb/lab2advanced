@@ -19,6 +19,11 @@ namespace lab2_2016advanced
         {
              this.results = results;
         }
+        public void CoordMouseToIndex(ref int x, ref int y)
+        {
+            x = (int)(point.X * results.partition_x / size.Width);
+            y = (int)(point.Y * results.partition_y / size.Height);
+        }
         public void createBitmapSource()
         {
             PixelFormat pf = PixelFormats.Indexed8;

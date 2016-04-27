@@ -13,18 +13,24 @@ namespace lab2_2016advanced
         {
             get; set;
         }
+        private bool status = false;
         public bool calculation_status
         {
-            get { return calculation_status; }
+            get { return status; }
             set
             {
-                calculation_status = value;
+                status = value;
                 NotifityPropetyChanged();
             }
         }
+        private int TimeWork;
         public int time
         {
-            get;  set;
+            get { return TimeWork; }
+            set {
+                TimeWork = value;
+                NotifityPropetyChanged();
+            }
         }
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void NotifityPropetyChanged(string PropertyName = null)

@@ -14,10 +14,12 @@ namespace Library
         public double[,] characteristics { set; get; }
         public void calculating_characteristics(int x, int x0)
         {
-             for (int i = x0; i < x; ++i)
+            double deltaX = 1.0 / (double)partition_x,
+                deltaY = 1.0 / (double)partition_y;
+            for (int i = x0; i < x; ++i)
                 for (int j = 0; j < partition_y; ++j)
                 {
-                    characteristics[i, j] =propety1*Math.Sin((i + 1)* propety2 * (j + 1)); 
+                    characteristics[i, j] =propety1*Math.Sin((i + 1)* propety2 * (j + 1)) * Math.Exp( Math.Pow((i  - partition_x / 2)*deltaX,2) + Math.Pow((j - partition_y / 2) * deltaY, 2)); 
                 }
         }
         private double min_ch = double.MaxValue;
@@ -38,8 +40,7 @@ namespace Library
         }
         public double average_characteristics
         {
-            get;//дописать 
-            set;
+            get { return (max_ch + min_ch) / 2; }
         }
         public double max_characteristics
         {

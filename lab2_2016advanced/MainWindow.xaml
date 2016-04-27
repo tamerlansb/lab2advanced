@@ -19,27 +19,37 @@
         <CommandBinding Command="ApplicationCommands.Save" CanExecute="CanSaveCommandHandler" 
                         Executed="ExecuteSaveCommandHandler"/>
     </Window.CommandBindings>
+    <Window.Resources>
+        <DataTemplate x:Key="Listbox_datatempelate">
+            <StackPanel Orientation="Vertical"  CanHorizontallyScroll="True">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock  Text="Номер блока:" />
+                    <TextBlock  Text="{Binding Path=unit_number}" />
+                    <TextBlock  Text=" статус:" />
+                    <TextBlock  Text="{Binding Path=calculation_status}" />
+                    <TextBlock  Text=" время выполнения" />
+                    <TextBlock  Text="{Binding Path=time}" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="120*"/>
-            <ColumnDefinition Width="118*"/>
-            <ColumnDefinition Width="100*"/>
-            <ColumnDefinition Width="83*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="160*"/>
+            <ColumnDefinition Width="260*"/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="144*"/>
         </Grid.ColumnDefinitions>
-        <ToolBar x:Name="toolBar" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
-            <Menu VerticalAlignment="Top" Grid.ColumnSpan="5">
-                <MenuItem Header="New" Command="ApplicationCommands.New" CommandParameter="From Menu Item">
-                </MenuItem>
-                <MenuItem Header="Open" Command="ApplicationCommands.Open" CommandParameter="From Menu Item">
-                </MenuItem>
-                <MenuItem Header="Save" Command="ApplicationCommands.Save" CommandParameter="From Menu Item"/>
-            </Menu>
-            <Button x:Name="execute_button" Foreground="Red" Content="Выполнить" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" >
+        <ToolBar x:Name="toolBar" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="28" Width="auto">
+            <Button x:Name="New" Content="New" Command="ApplicationCommands.New" CommandParameter="From Menu Item" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Top"  />
+            <Button x:Name="Open" Content="Open" Command="ApplicationCommands.Open" CommandParameter="From Menu Item" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Top" />
+            <Button x:Name="Save" Content="Save" Command="ApplicationCommands.Save" CommandParameter="From Menu Item" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Top"  />
+            <Button x:Name="execute_button"  Content="Выполнить" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Top" >
             </Button>
         </ToolBar>
-        <StackPanel x:Name="StackPanelConteiner" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Width="100" Margin="10,30,0,0" Grid.ColumnSpan="2">
+        <StackPanel x:Name="StackPanelConteiner" HorizontalAlignment="Left" Height="370" VerticalAlignment="Top" Width="100" Margin="10,30,0,0" Grid.ColumnSpan="2">
             <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="Название модели:"/>
             <TextBox x:Name="ModelName" Height="23" TextWrapping="Wrap" Text="{Binding ModelName, Mode=TwoWay, NotifyOnValidationError=True ,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="Дата обработки:"/>
@@ -71,12 +81,14 @@
             <TextBlock x:Name="textBlock6" TextWrapping="Wrap" Text="Количество потоков вычисления:"/>
             <TextBox x:Name="Count_stream" Height="23" TextWrapping="Wrap" Text="{Binding count_of_units, Mode=TwoWay, NotifyOnValidationError=True ,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
-        <ListBox x:Name="listBoxCalcultionStatus" Grid.Column="2" HorizontalAlignment="Left" Height="162" Margin="10,10,0,0" VerticalAlignment="Top" Width="193"/>
-        <TextBlock x:Name="QuestionPalette" Grid.Column="3" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Выбор палитры:" VerticalAlignment="Top"/>
-        <RadioButton x:Name="radioButtonPalette2Colors" Checked="radioButtonPalette2Colors_Checked" Content="2Colors" IsChecked="True" Grid.Column="3" HorizontalAlignment="Left" Margin="0,15,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="radioButtonPaletteManyColors" Checked="radioButtonPaletteManyColors_Checked" Content="ManyColors" Grid.Column="3" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top"/>
-        <Image x:Name="imageCalculationResult"  Stretch="Uniform" Grid.Column="3"  HorizontalAlignment="Left" Height="256" Margin="0,45,0,0" VerticalAlignment="Top" Width="256"/>
-        <StackPanel Grid.Column="4" HorizontalAlignment="Left" Height="auto" Margin="10,10,0,0" VerticalAlignment="Top" Width="100">
+        <ListBox x:Name="listBoxCalcultionStatus" Grid.Column="2" HorizontalAlignment="Left" Height="1000" Margin="10,10,0,0" VerticalAlignment="Top" Width="250"/>
+        <TextBlock x:Name="QuestionPalette" Grid.Column="3" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Выбор палитры:" VerticalAlignment="Top" Height="16" Width="89"/>
+        <RadioButton x:Name="radioButtonPalette2Colors" Checked="radioButtonPalette2Colors_Checked" Content="2Colors" IsChecked="True" Grid.Column="3" HorizontalAlignment="Left" Margin="0,15,0,0" VerticalAlignment="Top" Height="16" Width="56"/>
+        <RadioButton x:Name="radioButtonPaletteManyColors" Checked="radioButtonPaletteManyColors_Checked" Content="ManyColors" Grid.Column="3" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" Height="16" Width="79"/>
+        <Image x:Name="imageCalculationResult" MouseDown="imageCalculationResult_MouseDown" Stretch="Uniform" Grid.Column="3"  HorizontalAlignment="Left" Height="256" Margin="0,45,0,0" VerticalAlignment="Top" Width="256" Grid.ColumnSpan="2"/>
+        <StackPanel Grid.Column="4" HorizontalAlignment="Left" Height="162" Margin="10,10,0,0" VerticalAlignment="Top" Width="100">
+            <TextBlock x:Name="CurrentPointValueHeader" TextWrapping="Wrap" Text="Текущее значение выбранного пикселя:"/>
+            <TextBox x:Name="CurrentPointValue" Focusable="False"   TextWrapping="Wrap" Text="{Binding Path=CurrentPoint,  Mode=TwoWay, NotifyOnValidationError=True ,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock x:Name="textBlockMaxInResult" TextWrapping="Wrap" Text="Максимальное значение:"/>
             <TextBox x:Name="MaxInResult" Focusable="False" TextWrapping="Wrap" Text=""/>
             <TextBlock x:Name="textBlockAverageInResult"  TextWrapping="Wrap" Text="Среднее значение:"/>

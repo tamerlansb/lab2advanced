@@ -3,3 +3,8 @@ c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\Library\b
 c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
 c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\Library\obj\Debug\Library.dll
 c:\users\admin\documents\visual studio 2015\Projects\lab2_2016advanced\Library\obj\Debug\Library.pdb
+C:\Users\Admin\lab2advanced\Library\bin\Debug\Library.dll
+C:\Users\Admin\lab2advanced\Library\bin\Debug\Library.pdb
+C:\Users\Admin\lab2advanced\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
+C:\Users\Admin\lab2advanced\Library\obj\Debug\Library.dll
+C:\Users\Admin\lab2advanced\Library\obj\Debug\Library.pdb

@@ -36,6 +36,10 @@ namespace lab2_2016advanced
         {
             execute_button.Command = ExecuteNumericResults;
             this.DataContext = DataSource;
+            listBoxCalcultionStatus.ItemsSource = ThreadsListinfo;
+            DataTemplate template = this.TryFindResource("Listbox_datatempelate") as DataTemplate;
+            if (template != null)
+                listBoxCalcultionStatus.ItemTemplate = template;
             /*BitmapImage bi3 = new BitmapImage();
             bi3.BeginInit();
             bi3.UriSource = new Uri(@"C:\\Users\\Admin\\task3\\lena.bmp", UriKind.Absolute);
@@ -75,13 +79,15 @@ namespace lab2_2016advanced
         }
         private void workerDoWork(object sender,DoWorkEventArgs e)
         {
-            WorkerArg arg = e.Argument as WorkerArg;
-            ThreadsListinfo[arg.threadinfo.unit_number].time = Environment.TickCount;
+            WorkerArg arg = e.Argument as WorkerArg;;
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            sw.Start();
             arg.results.calculating_characteristics(arg.x, arg.x0);
-            ThreadsListinfo[arg.threadinfo.unit_number].time = Environment.TickCount -ThreadsListinfo[arg.threadinfo.unit_number].time;
-          //  ThreadsListinfo[arg.threadinfo.unit_number].calculation_status = true;
+            sw.Stop();
+            ThreadsListinfo[arg.threadinfo.unit_number].time = (int)( sw.ElapsedMilliseconds / 100.0f);
+             ThreadsListinfo[arg.threadinfo.unit_number].calculation_status = true;
             e.Result = arg;
-         //   arg.threadinfo.calculation_status = true;
+            //   arg.threadinfo.calculation_status = true;
 
         }
         private void workerRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -93,17 +99,23 @@ namespace lab2_2016advanced
             else
             {
                 WorkerArg res = e.Result as WorkerArg;
-
+                for (int i = res.x0; i < res.x; ++i)
+                    for (int j = 0; j < res.results.partition_y; ++j)
+                    {
+                        DataSource.results.characteristics[i, j] = res.results.characteristics[i, j];
+                    }
             }
         }
         private void ExecuteNumericResultsCommandHandler(object sender, ExecutedRoutedEventArgs e)
         {
-            WorkerArg arg = new WorkerArg();
             ThreadsListinfo = new ObservableCollectionThreadInfo();
+            listBoxCalcultionStatus.ItemsSource = ThreadsListinfo;
             DataSource.results.characteristics = new double[DataSource.partition_x, DataSource.partition_y];
+
+            WorkerArg arg = new WorkerArg();
             arg.results = DataSource.results;
             arg.x0 = 0;
-            arg.x = DataSource.partition_x;
+            arg.x = DataSource.partition_x /  DataSource.count_of_units;
             for (int i = 0; i < DataSource.count_of_units; ++i)
             {
                 BackgroundWorker worker = new BackgroundWorker();
@@ -111,9 +123,15 @@ namespace lab2_2016advanced
                 worker.RunWorkerCompleted += workerRunWorkerCompleted;
 
                 ThreadInfo threadinfo = new ThreadInfo();
+                arg.x0 = i * (DataSource.partition_x / DataSource.count_of_units);
+                if (i!=DataSource.count_of_units-1)
+                   arg.x = (i + 1) *( DataSource.partition_x / DataSource.count_of_units);
+                else
+                    arg.x = (i + 1) * (DataSource.partition_x / DataSource.count_of_units) + DataSource.partition_x % DataSource.count_of_units;
                 threadinfo.unit_number = i;
                 arg.threadinfo = threadinfo;
                 ThreadsListinfo.Add(threadinfo);
+
                 worker.RunWorkerAsync(arg);
             }
          /*   bool calc = false;
@@ -180,7 +198,10 @@ namespace lab2_2016advanced
             if (dlg.ShowDialog() == true)
                 filename = dlg.FileName;
             else
+            {
                 filename = null;
+                return;
+            }
             FileStream fileStream = null;
             try
             {
@@ -238,5 +259,18 @@ namespace lab2_2016advanced
                 imageCalculationResult.Source = ImageData.imageSource;
             }
         }
+
+        private void imageCalculationResult_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Point CurrentPoint = e.GetPosition(imageCalculationResult);
+            ImageData.point = CurrentPoint;
+            ImageData.size = imageCalculationResult.RenderSize;
+            int x = 0, y  = 0;
+            ImageData.CoordMouseToIndex(ref x, ref y);
+            DataSource.CurrentPoint = DataSource.results.characteristics[x, y];
+            e.Handled = true;
+        }
+
+
     }
 }

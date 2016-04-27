@@ -28,15 +28,24 @@ namespace lab2_2016advanced
                 PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
             }
         }
-
+        private bool issaved = false;
+        private bool iscompleted= false;
         public bool IsCompleted
         {
-            get;
-            set;
+            get { return iscompleted; }
+            set
+            {
+                iscompleted = value;
+                NotifityPropetyChanged();
+            }
         }
         public bool IsSaved
         {
-            get; // дописать 
+            get { return issaved; }
+            set {
+                issaved = value;
+                NotifityPropetyChanged();
+            }
         }
 
         // для IDataError
@@ -47,33 +56,51 @@ namespace lab2_2016advanced
         }
         public double propety1
         {
-            set { results.propety1 = value; }
+            set {
+                results.propety1 = value;
+                NotifityPropetyChanged();
+            }
             get { return results.propety1; }
         }
         public int count_of_units
         {
-            set { results.count_of_units = value; }
+            set {
+                results.count_of_units = value;
+                NotifityPropetyChanged();
+            }
             get { return results.count_of_units; }
         }
         public int partition_x
         {
-            set { results.partition_x = value; }
+            set {
+                results.partition_x = value;
+                NotifityPropetyChanged();
+            }
             get { return results.partition_x; }
         }
         public int partition_y
         {
-            set { results.partition_y = value; }
+            set {
+                results.partition_y = value;
+                NotifityPropetyChanged();
+            }
             get { return results.partition_y;  }
         }
         public DateTime DateOfProcessing
         {
-            set { results.DateOfProcessing = value; }
+            set {
+                results.DateOfProcessing = value;
+                NotifityPropetyChanged();
+            }
             get { return results.DateOfProcessing;  }
         }
         public string ModelName
         {
             get { return results.ModelName; }
-            set { results.ModelName = value; }
+            set {
+                results.ModelName = value;
+                NotifityPropetyChanged();
+            }
         }
         public string Error
         {
@@ -124,6 +151,13 @@ namespace lab2_2016advanced
             }
          
         }
-
+        private double currentpoint;
+        public double CurrentPoint {
+            get { return currentpoint; }
+            set {
+                currentpoint = value;
+                NotifityPropetyChanged();
+            }
+        }
     }
 }
