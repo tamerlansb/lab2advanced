@@ -70,7 +70,7 @@
             <TextBlock x:Name="textBlock4" TextWrapping="Wrap" Text="Первый параметр:"/>
             <TextBox x:Name="FirstParam" Height="23" TextWrapping="Wrap">
                 <TextBox.Text>
-                    <Binding Path="propety1" Mode="TwoWay" NotifyOnValidationError="True" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="propety1" Mode="TwoWay" NotifyOnValidationError="True" ValidatesOnDataErrors="True" >
                         <Binding.ValidationRules>
                             <DataErrorValidationRule></DataErrorValidationRule>
                         </Binding.ValidationRules>
@@ -78,7 +78,7 @@
                 </TextBox.Text>
             </TextBox>
             <TextBlock x:Name="textBlock5" TextWrapping="Wrap" Text="Второй параметр:"/>
-            <TextBox x:Name="SecondParam" Height="23" TextWrapping="Wrap" Text="{Binding propety2, Mode=TwoWay, NotifyOnValidationError=True ,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox x:Name="SecondParam" Height="23" TextWrapping="Wrap" Text="{Binding propety2, Mode=TwoWay, NotifyOnValidationError=True ,ValidatesOnDataErrors=True}"/>
             <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Text="Число разбиений по x:"/>
             <TextBox x:Name="X_partition" Height="23" TextWrapping="Wrap" Text="{Binding partition_x,  Mode=TwoWay, NotifyOnValidationError=True ,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock x:Name="textBlock3" TextWrapping="Wrap" Text="Число разбиений по y:"/>
