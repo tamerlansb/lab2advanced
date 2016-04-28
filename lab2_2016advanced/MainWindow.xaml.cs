@@ -40,14 +40,6 @@ namespace lab2_2016advanced
             DataTemplate template = this.TryFindResource("Listbox_datatempelate") as DataTemplate;
             if (template != null)
                 listBoxCalcultionStatus.ItemTemplate = template;
-            /*BitmapImage bi3 = new BitmapImage();
-            bi3.BeginInit();
-            bi3.UriSource = new Uri(@"C:\\Users\\Admin\\task3\\lena.bmp", UriKind.Absolute);
-            bi3.EndInit();
-            // myImage3.Stretch = Stretch.Fill;
-            imageCalculationResult.Stretch = Stretch.Fill;
-            imageCalculationResult.Source = bi3;*/
-
         }
         private void CanExecuteNumericResultsCommandHandler(object sender, CanExecuteRoutedEventArgs e)
         {
