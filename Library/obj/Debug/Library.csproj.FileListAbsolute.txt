@@ -8,3 +8,8 @@ C:\Users\Admin\lab2advanced\Library\bin\Debug\Library.pdb
 C:\Users\Admin\lab2advanced\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
 C:\Users\Admin\lab2advanced\Library\obj\Debug\Library.dll
 C:\Users\Admin\lab2advanced\Library\obj\Debug\Library.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\lab2advanced\Library\bin\Debug\Library.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\lab2advanced\Library\bin\Debug\Library.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\lab2advanced\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\lab2advanced\Library\obj\Debug\Library.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\lab2advanced\Library\obj\Debug\Library.pdb

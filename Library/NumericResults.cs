@@ -34,6 +34,7 @@ namespace Library
             {
                 if (min_flag) return min_ch;
                 min_flag = true;
+                min_ch = double.MaxValue;
                 for (int i = 0; i < partition_x; ++i)
                     for (int j = 0; j < partition_y; ++j)
                     {
@@ -53,6 +54,7 @@ namespace Library
             {
                 if (max_flag) return max_ch;
                 max_flag = true;
+                max_ch = double.MinValue;
                 for(int i = 0; i < partition_x; ++i)
                     for (int j = 0; j < partition_y; ++j)
                 {

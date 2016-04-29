@@ -26,7 +26,7 @@ namespace lab2_2016advanced
         }
         public override int ChooseIndexOfColorInPalette(double param)
         {
-            return (int)(6*((param - min_val)/ (max_val - min_val)));
+            return (int)(7*((param - min_val)/ (max_val - min_val)));
         }
     }
 }
